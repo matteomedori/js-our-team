@@ -34,4 +34,13 @@ const teamMembers = [
   },
 ];
 
-console.log(teamMembers);
+//per ogni elemento dell'array
+for (let i = 0; i < teamMembers.length; i++) {
+  let description = `Membro ${i + 1}`;
+  //per ogni chiave dell'oggetto
+  for (let key in teamMembers[i])
+    description += `
+${key}: ${teamMembers[i][key]}`;
+  console.log(description);
+}
+// console.log(teamMembers);
