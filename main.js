@@ -1,5 +1,20 @@
 "use strict";
 
+/*
+FUNCTIONS 
+*/
+
+function img_create(src, alt) {
+  const img = document.createElement("img");
+  img.src = "img/" + src;
+  img.alt = alt;
+  return img;
+}
+
+/*
+OPERATIONS 
+*/
+
 // array of team members
 const teamMembers = [
   {
@@ -34,16 +49,35 @@ const teamMembers = [
   },
 ];
 
-const p = document.querySelector("p");
+// //per ogni elemento dell'array
+// for (let i = 0; i < 1; i++) {
+//   const p = document.createElement("p");
+//   let text = `Membro ${i + 1}`;
+//   //per ogni chiave dell'oggetto
+//   for (let key in teamMembers[i]) {
+//     text += `
+// ${key}: ${teamMembers[i][key]}`;
+//   }
+//   p.innerText = text;
+//   console.log(p.innerText);
+//   console.log(text);
+//   //   p.innerText += description + "\n";
+//   //   p.append(img_create(teamMembers[i]["img"], i));
+// }
 
-//per ogni elemento dell'array
+//creazione schede
+const cards = document.querySelector(".cards");
+
 for (let i = 0; i < teamMembers.length; i++) {
-  let description = `Membro ${i + 1}`;
-  //per ogni chiave dell'oggetto
-  for (let key in teamMembers[i])
-    description += `
-${key}: ${teamMembers[i][key]}`;
-  console.log(description);
-  p.innerText += description + "\n";
+  const div = document.createElement("div");
+  const img = img_create(teamMembers[i]["img"], i);
+  const h2 = document.createElement("h2");
+  h2.innerText = teamMembers[i].name;
+  const par = document.createElement("p");
+  par.innerText = teamMembers[i].role;
+
+  div.append(img);
+  div.append(h2);
+  div.append(par);
+  cards.append(div);
 }
-// console.log(teamMembers);
