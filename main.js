@@ -34,6 +34,8 @@ const teamMembers = [
   },
 ];
 
+const p = document.querySelector("p");
+
 //per ogni elemento dell'array
 for (let i = 0; i < teamMembers.length; i++) {
   let description = `Membro ${i + 1}`;
@@ -42,5 +44,6 @@ for (let i = 0; i < teamMembers.length; i++) {
     description += `
 ${key}: ${teamMembers[i][key]}`;
   console.log(description);
+  p.innerText += description + "\n";
 }
 // console.log(teamMembers);
